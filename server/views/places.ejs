@@ -1,0 +1,49 @@
+<%- layout('layouts/main.ejs') %>
+<div class="row">
+    <div class="col-md-5">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h1 class="mt-4 display-4">Interest Groups</h1>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <% places.forEach(function(place) { %>
+                        <li class="list-group-item list-group-item-light"> 
+
+                            <a href="/listgroup/<%= place %>" class="h4"> <%= place %> </a>
+
+                        </li>
+                    <% }); %>
+                </ul> 
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 offset-md-1 mt-4">
+        <div class="card text-center mt-4">
+            <div class="card-header">
+                <h1 class="text-muted">Add a place to a group</h1>
+            </div>
+            <div class="card-body">
+                <form action="/add" method="POST">
+                    <div class="form-group">
+                        <select name="group" class="form-control">
+                            <% places.forEach(function(place) { %>
+                                <option value="<%= place %>"><%= place %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" name="place" class="form-control" placeholder="Name of the place" required>
+                        <input type="text" name="longitude" class="form-control" placeholder="Longitude" required>
+                        <input type="text" name="latitude" class="form-control" placeholder="Latitude" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block mt-4">
+                        Add
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,28 @@
+<%- layout('layouts/main.ejs') %>
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card mt-4 text-center">
+            <div class="card-header text-muted">
+                <h1>Search For Places Near You (5km)</h1>
+            </div>
+            <div class="card-body">
+                <form action="/search" method="POST">
+                    <div class="form-group">
+                        <select name="group" class="form-control">
+                            <% places.forEach(function(place) { %>
+                                <option value="<%= place %>"><%= place %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" name="longitude" class="form-control" placeholder="Your Longitude" required>
+                        <input type="text" name="latitude" class="form-control" placeholder="Your Latitude" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block mt-4">
+                        Search
+                    </button>
+                </form>
+            </div>
+        </div>  
+    </div>
+</div>

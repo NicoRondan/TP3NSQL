@@ -1,0 +1,25 @@
+<%- layout('layouts/main.ejs') %>
+<div class="row">
+    <div class="col-md-12 mt-4">
+        <h1 class="display-4 text-center"> <%= place %> Groups</h1>
+        <hr>
+        <table class="table table-striped table-bordered bg-white table-lg">
+            <thead>
+                <tr>
+                  <td class="text-center"><h3>Name</h3></td>
+                  <td class="text-center"><h3>Longitude</h3></td>
+                  <td class="text-center"><h3>Latitude</h3></td> 
+                </tr>
+            </thead>
+            <tbody>
+                <% groups.forEach(function(group) { %>
+                    <tr>
+                        <td class="text-center"><h3><%= group.name %></h3></td>
+                        <td class="text-center"><h3><%= group.longitude %></h3></td>
+                        <td class="text-center"><h3><%= group.latitude %></h3></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</div>
