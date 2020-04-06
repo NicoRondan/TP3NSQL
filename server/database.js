@@ -5,7 +5,7 @@ const bluebird = require('bluebird');
 bluebird.promisifyAll(redis.RedisClient.prototype);
 bluebird.promisifyAll(redis.Multi.prototype);
 
-const redisClient = redis.createClient();
+const redisClient = redis.createClient(6379, 'redis');
 
 redisClient.on('connect', () => {
     console.log('Connected to redis server')
@@ -20,6 +20,6 @@ const initialize = () => {
 };
 
 //redisClient.flushdb();
-//initialize();
+initialize();
 
 module.exports = {redisClient};
